@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>邻练青少年公益体测 | 人民街道党群服务中心</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: linear-gradient(135deg, #F5FAED 0%, #ffffff 50%, #F5FAED 100%);
+      min-height: 100vh;
+      color: #1a1a1a;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #7CB518 0%, #6A9B14 100%);
+      color: #fff;
+      padding: 60px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .logo {
+      height: 80px;
+      margin-bottom: 20px;
+      filter: brightness(0) invert(1);
+    }
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .hero p {
+      font-size: 16px;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: #7CB518;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    }
+    .cta-btn::after {
+      content: '→';
+      font-size: 20px;
+    }
+
+    .features {
+      max-width: 720px;
+      margin: -40px auto 0;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+    }
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: #E8F5D6;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 28px;
+    }
+    .feature h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .feature p {
+      font-size: 12px;
+      color: #8a8a8a;
+    }
+
+    .info-section {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+    }
+    .info-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-card h3::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: #7CB518;
+      border-radius: 2px;
+    }
+    .info-list {
+      list-style: none;
+    }
+    .info-list li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: #5a5a5a;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .info-list li::before {
+      content: '✓';
+      color: #7CB518;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 20px;
+    }
+    .footer img {
+      height: 36px;
+      margin-bottom: 12px;
+    }
+    .footer p {
+      font-size: 12px;
+      color: #8a8a8a;
+      line-height: 1.8;
+    }
+    .footer .brand {
+      color: #7CB518;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 26px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="badge">人民街道党群服务中心 · 公益项目</div>
+      <img src="logo.png" alt="邻练体育" class="logo">
+      <h1>邻练青少年公益体测</h1>
+      <p>专业体质检测 · AI智能分析 · 科学运动建议<br>助力孩子健康成长</p>
+      <a href="https://ycnfvdgbenoc.feishu.cn/share/base/form/shrcnJ4X4iEfNn1Dbx4fJ6P7sad" class="cta-btn" target="_blank">立即预约体测</a>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>专业体测</h3>
+      <p>足弓检测、立定跳远、体能评估</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🤖</div>
+      <h3>AI分析</h3>
+      <p>智能生成体质分析报告</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📋</div>
+      <h3>PDF报告</h3>
+      <p>专业报告，科学建议</p>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <div class="info-card">
+      <h3>体测内容</h3>
+      <ul class="info-list">
+        <li>足弓足型检测 — 评估足部发育情况</li>
+        <li>立定跳远测试 — 测量下肢爆发力</li>
+        <li>体能综合评估 — 全面体质健康分析</li>
+        <li>AI智能报告 — 个性化运动建议</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>预约须知</h3>
+      <ul class="info-list">
+        <li>适用年龄：3-18岁青少年</li>
+        <li>体测时长：约30分钟</li>
+        <li>请穿着运动服装参加</li>
+        <li>体测前避免剧烈运动</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>服务地点</h3>
+      <ul class="info-list">
+        <li>大德中站（人民街道党群服务中心）</li>
+        <li>地址：广州市越秀区大德中路</li>
+        <li>交通：地铁1号线/2号线公园前站</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <img src="logo.png" alt="邻练体育">
+    <p>
+      <span class="brand">邻练体育</span> · 邻练课后健康 · 社区体育托管<br>
+      人民街道党群服务中心合作项目<br>
+      如有疑问，请联系工作人员
+    </p>
+  </div>
+</body>
+</html>
